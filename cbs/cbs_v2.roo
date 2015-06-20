@@ -47,6 +47,7 @@ field reference --fieldName customer --type ~.domain.Customer
 field date --fieldName timeStart --type java.util.Date --past
 field date --fieldName timeEnd --type java.util.Date --past 
 field number --fieldName timeDuration --type java.lang.Float
+//finder add --finderName findDeliverysByCustomer --class ~.domain.Delivery
 
 
 // Offer JSON remoting for all domain types through Spring MVC

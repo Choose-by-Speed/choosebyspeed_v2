@@ -30,8 +30,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Configurable
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord
 @RooJson(deepSerialize = true)
+@RooJpaActiveRecord(finders = { "findDeliverysByCustomer" })
 public class Delivery {
 
     /**
@@ -62,51 +62,51 @@ public class Delivery {
      */
     private Float timeDuration;
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
     private Integer version;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	public Integer getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-	@PersistenceContext
+    @PersistenceContext
     transient EntityManager entityManager;
 
-	public static final List<String> fieldNames4OrderClauseFilter = java.util.Arrays.asList("provider", "customer", "timeStart", "timeEnd", "timeDuration");
+    public static final List<String> fieldNames4OrderClauseFilter = java.util.Arrays.asList("provider", "customer", "timeStart", "timeEnd", "timeDuration");
 
-	public static final EntityManager entityManager() {
+    public static final EntityManager entityManager() {
         EntityManager em = new Delivery().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
 
-	public static long countDeliverys() {
+    public static long countDeliverys() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Delivery o", Long.class).getSingleResult();
     }
 
-	public static List<Delivery> findAllDeliverys() {
+    public static List<Delivery> findAllDeliverys() {
         return entityManager().createQuery("SELECT o FROM Delivery o", Delivery.class).getResultList();
     }
 
-	public static List<Delivery> findAllDeliverys(String sortFieldName, String sortOrder) {
+    public static List<Delivery> findAllDeliverys(String sortFieldName, String sortOrder) {
         String jpaQuery = "SELECT o FROM Delivery o";
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
@@ -117,16 +117,16 @@ public class Delivery {
         return entityManager().createQuery(jpaQuery, Delivery.class).getResultList();
     }
 
-	public static Delivery findDelivery(Long id) {
+    public static Delivery findDelivery(Long id) {
         if (id == null) return null;
         return entityManager().find(Delivery.class, id);
     }
 
-	public static List<Delivery> findDeliveryEntries(int firstResult, int maxResults) {
+    public static List<Delivery> findDeliveryEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Delivery o", Delivery.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 
-	public static List<Delivery> findDeliveryEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+    public static List<Delivery> findDeliveryEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
         String jpaQuery = "SELECT o FROM Delivery o";
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
@@ -137,13 +137,13 @@ public class Delivery {
         return entityManager().createQuery(jpaQuery, Delivery.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 
-	@Transactional
+    @Transactional
     public void persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
 
-	@Transactional
+    @Transactional
     public void remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
@@ -154,19 +154,19 @@ public class Delivery {
         }
     }
 
-	@Transactional
+    @Transactional
     public void flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
 
-	@Transactional
+    @Transactional
     public void clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
 
-	@Transactional
+    @Transactional
     public Delivery merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
         Delivery merged = this.entityManager.merge(this);
@@ -174,77 +174,71 @@ public class Delivery {
         return merged;
     }
 
-	public Provider getProvider() {
+    public Provider getProvider() {
         return this.provider;
     }
 
-	public void setProvider(Provider provider) {
+    public void setProvider(Provider provider) {
         this.provider = provider;
     }
 
-	public Customer getCustomer() {
+    public Customer getCustomer() {
         return this.customer;
     }
 
-	public void setCustomer(Customer customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-	public Date getTimeStart() {
+    public Date getTimeStart() {
         return this.timeStart;
     }
 
-	public void setTimeStart(Date timeStart) {
+    public void setTimeStart(Date timeStart) {
         this.timeStart = timeStart;
     }
 
-	public Date getTimeEnd() {
+    public Date getTimeEnd() {
         return this.timeEnd;
     }
 
-	public void setTimeEnd(Date timeEnd) {
+    public void setTimeEnd(Date timeEnd) {
         this.timeEnd = timeEnd;
     }
 
-	public Float getTimeDuration() {
+    public Float getTimeDuration() {
         return this.timeDuration;
     }
 
-	public void setTimeDuration(Float timeDuration) {
+    public void setTimeDuration(Float timeDuration) {
         this.timeDuration = timeDuration;
     }
 
-	public String toJson() {
-        return new JSONSerializer()
-        .exclude("*.class").deepSerialize(this);
+    public String toJson() {
+        return new JSONSerializer().exclude("*.class").deepSerialize(this);
     }
 
-	public String toJson(String[] fields) {
-        return new JSONSerializer()
-        .include(fields).exclude("*.class").deepSerialize(this);
+    public String toJson(String[] fields) {
+        return new JSONSerializer().include(fields).exclude("*.class").deepSerialize(this);
     }
 
-	public static Delivery fromJsonToDelivery(String json) {
-        return new JSONDeserializer<Delivery>()
-        .use(null, Delivery.class).deserialize(json);
+    public static Delivery fromJsonToDelivery(String json) {
+        return new JSONDeserializer<Delivery>().use(null, Delivery.class).deserialize(json);
     }
 
-	public static String toJsonArray(Collection<Delivery> collection) {
-        return new JSONSerializer()
-        .exclude("*.class").deepSerialize(collection);
+    public static String toJsonArray(Collection<Delivery> collection) {
+        return new JSONSerializer().exclude("*.class").deepSerialize(collection);
     }
 
-	public static String toJsonArray(Collection<Delivery> collection, String[] fields) {
-        return new JSONSerializer()
-        .include(fields).exclude("*.class").deepSerialize(collection);
+    public static String toJsonArray(Collection<Delivery> collection, String[] fields) {
+        return new JSONSerializer().include(fields).exclude("*.class").deepSerialize(collection);
     }
 
-	public static Collection<Delivery> fromJsonArrayToDeliverys(String json) {
-        return new JSONDeserializer<List<Delivery>>()
-        .use("values", Delivery.class).deserialize(json);
+    public static Collection<Delivery> fromJsonArrayToDeliverys(String json) {
+        return new JSONDeserializer<List<Delivery>>().use("values", Delivery.class).deserialize(json);
     }
 
-	public String toString() {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
