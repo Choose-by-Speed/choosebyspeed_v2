@@ -57,6 +57,19 @@ public class ProviderController {
             return new ResponseEntity<String>("{\"ERROR\":"+e.getMessage()+"\"}", headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+	
+	@RequestMapping(value = "/query",headers = "Accept=application/json")
+    @ResponseBody
+    public ResponseEntity<String> listJsonByCategoryId(@RequestParam String categoryId) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        try {
+            List<Provider> result = Provider.findProvidersByCategoryId(categoryId);
+            return new ResponseEntity<String>(Provider.toJsonArray(result), headers, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<String>("{\"ERROR\":"+e.getMessage()+"\"}", headers, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 	@RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<String> createFromJson(@RequestBody String json, UriComponentsBuilder uriBuilder) {

@@ -5,10 +5,13 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
+
 import java.util.Collection;
 import java.util.List;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.persistence.Column;
@@ -20,7 +23,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Lob;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.Version;
+
 import org.springframework.roo.classpath.operations.jsr303.RooUploadedFile;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.transaction.annotation.Transactional;
@@ -200,6 +205,17 @@ public class Provider {
 
 	public static List<Provider> findAllProviders() {
         return entityManager().createQuery("SELECT o FROM Provider o", Provider.class).getResultList();
+    }
+	
+	/**
+	 * Try findProvidersByCategoryId
+	 * @param categoryId
+	 * @return
+	 */
+	public static List<Provider> findProvidersByCategoryId(String categoryId) {
+		Query query = entityManager().createQuery("SELECT p FROM Provider p Join fetch p.category c where c.id = :cid", Provider.class);
+		query.setParameter("cid", Long.parseLong(categoryId));
+		return query.getResultList();
     }
 
 	public static List<Provider> findAllProviders(String sortFieldName, String sortOrder) {
