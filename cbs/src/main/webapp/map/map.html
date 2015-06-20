@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:500px;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mQEILeHsxAjySv7ZMt7XQUFe"></script>
+	<title>icon&points</title>
+</head>
+<body>
+    <script type="text/json" id="delme">
+        [{"lng":116.4,"lat":40},{"lng":116.4,"lat":40.001}]
+    </script>
+    
+    <script type="text/json" id="providersJson">
+    [
+    {
+        "category": {
+            "id": 1,
+            "name": "Food",
+            "parent": null,
+            "version": 0
+        },
+        "description": "",
+        "id": 1,
+        "image": [],
+        "imageUrl": "",
+        "locationLat": 22.2845,
+        "locationLong": 114.136,
+        "menuHtml": "",
+        "name": "Pizza Hut",
+        "phoneNumber": "+852 2857 3457",
+        "version": 1
+    },
+    {
+        "category": {
+            "id": 2,
+            "name": "PC",
+            "parent": null,
+            "version": null
+        },
+        "description": "",
+        "id": 2,
+        "image": [],
+        "imageUrl": "",
+        "locationLat": 22.2845,
+        "locationLong": 114.159,
+        "menuHtml": "",
+        "name": "App Store",
+        "phoneNumber": "+852 3972 1500",
+        "version": 1
+    }
+]
+</script>
+    <div>
+        <h1>Welcome</h1>
+    </div>
+	<div id="allmap"></div>
+	<script src="ComplexCustomOverlay.js" type="text/javascript"></script>
+	<script src="mapUtils.js" type="text/javascript"></script>
+	<script src="Ajax.js" type="text/javascript"></script>
+    <script src="mapMain.js" type="text/javascript"></script>
+</body>
+</html>
