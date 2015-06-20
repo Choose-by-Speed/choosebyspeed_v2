@@ -58,9 +58,9 @@
         </property>
     </bean>
 
-    <!-- Enable this for integration of file upload functionality -->
+ <!-- Enable this for integration of file upload functionality -->
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/>
-<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" id="tilesViewResolver">
+<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" id="tilesViewResolver" p:order="1">
     <property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
   </bean>
     <bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" id="tilesConfigurer">
@@ -73,4 +73,9 @@
     </property>
   </bean>
 <bean class="com.epam.hack.choosebyspeed.web.ApplicationConversionServiceFactoryBean" id="applicationConversionService"/>
+
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/views/jsp/"  
+            p:suffix=".jsp" p:order="2"/> 
+            
+            
 </beans>

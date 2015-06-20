@@ -198,4 +198,21 @@ public class CategoryController {
             return new ResponseEntity<String>("{\"ERROR\":"+e.getMessage()+"\"}", headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+	
+	@RequestMapping(value="/query", params="id", method=RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<String> findCategoriesByCategory(@RequestParam(value="id",defaultValue="-1",required=false) Long id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        try {
+        	List<Category> result = null;
+        	if(id==-1){
+        		result = Category.findCategoryByCategory(null);
+        	}
+            result = Category.findCategoryByCategory(Category.findCategory(id));
+            return new ResponseEntity<String>(Category.toJsonArray(result), headers,HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<String>("{\"ERROR\":"+e.getMessage()+"\"}", headers, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

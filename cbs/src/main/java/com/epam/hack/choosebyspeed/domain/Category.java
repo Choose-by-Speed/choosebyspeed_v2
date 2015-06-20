@@ -5,10 +5,13 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
+
 import java.util.Collection;
 import java.util.List;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.persistence.Column;
@@ -19,9 +22,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.persistence.Version;
+
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 @Configurable
 @Entity
@@ -81,6 +87,17 @@ public class Category {
 
 	public static List<Category> findCategoryEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Category o", Category.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+
+	public static List<Category> findCategoryByCategory(Category category) {
+		if(category == null){
+			 return entityManager().createQuery("SELECT o FROM Category o WHERE o.parent is NOT NULL").getResultList();			
+		}
+		else{
+			TypedQuery<Category> query = entityManager().createQuery("SELECT c FROM Category c WHERE c.parent = :category", Category.class);
+			query.setParameter("category", category);
+			return query.getResultList();
+		}
     }
 
 	public static List<Category> findCategoryEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {

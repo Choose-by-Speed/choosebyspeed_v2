@@ -30,7 +30,7 @@ p {
  
     
     <div>
-        <h1>Welcome</h1>
+        <h1>Welcome all</h1>
 
         <nav id="primary_nav_wrap">
         <ul>
