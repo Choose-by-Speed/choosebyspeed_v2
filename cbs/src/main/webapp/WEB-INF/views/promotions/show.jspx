@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_epam_hack_choosebyspeed_domain_Promotion" object="${promotion}" path="/promotions" z="zweDuHDloCJq4u5hwA5OPU9qYzM=">
+        <field:display field="name" id="s_com_epam_hack_choosebyspeed_domain_Promotion_name" object="${promotion}" z="cgGKuyiquq97KLXcvPKAjCjGPKU="/>
+        <field:display field="description" id="s_com_epam_hack_choosebyspeed_domain_Promotion_description" object="${promotion}" z="xqRe2uif22GWCQTMnQbMUz7bNKc="/>
+        <field:display date="true" dateTimePattern="${promotion_periodstart_date_format}" field="periodStart" id="s_com_epam_hack_choosebyspeed_domain_Promotion_periodStart" object="${promotion}" z="ILSyaMEC4sqn/2kR+N7R1tyUQ70="/>
+        <field:display date="true" dateTimePattern="${promotion_periodend_date_format}" field="periodEnd" id="s_com_epam_hack_choosebyspeed_domain_Promotion_periodEnd" object="${promotion}" z="laoPfrFDrOgnB+Jpu/Pd67Yy+Po="/>
+    </page:show>
+</div>

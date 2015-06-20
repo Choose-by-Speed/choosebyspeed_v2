@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_epam_hack_choosebyspeed_domain_Delivery" object="${delivery}" path="/deliverys" z="dyiP0dQd0mg67CopGA4wUiVMRz8=">
+        <field:display field="provider" id="s_com_epam_hack_choosebyspeed_domain_Delivery_provider" object="${delivery}" z="lXeBLzE89uaoquhDFnhMtnO7yfg="/>
+        <field:display field="customer" id="s_com_epam_hack_choosebyspeed_domain_Delivery_customer" object="${delivery}" z="/GbmnlWDhhU9XAxFRtoxrDrDTHg="/>
+        <field:display date="true" dateTimePattern="${delivery_timestart_date_format}" field="timeStart" id="s_com_epam_hack_choosebyspeed_domain_Delivery_timeStart" object="${delivery}" z="jZO29CLDMqNaPgeMaupwfswJ0YA="/>
+        <field:display date="true" dateTimePattern="${delivery_timeend_date_format}" field="timeEnd" id="s_com_epam_hack_choosebyspeed_domain_Delivery_timeEnd" object="${delivery}" z="K2MVm+jfZ+K8rkVh3xzm60ff5Do="/>
+        <field:display field="timeDuration" id="s_com_epam_hack_choosebyspeed_domain_Delivery_timeDuration" object="${delivery}" z="jShjyhLRSdhWS83w8dhhJEXLrQA="/>
+    </page:show>
+</div>

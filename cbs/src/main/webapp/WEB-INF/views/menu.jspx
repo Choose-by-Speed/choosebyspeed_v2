@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_promotion" z="N0OacQb6uAS3kqi0gUsvItxEk+Q=">
+            <menu:item id="i_promotion_new" messageCode="global_menu_new" url="/promotions?form" z="vIRg6/c1jXWNdovKhtkTejeI8iY="/>
+            <menu:item id="i_promotion_list" messageCode="global_menu_list" url="/promotions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Rs8bZOs+/nedQSeGNfEpHsJadIM="/>
+        </menu:category>
+        <menu:category id="c_category" z="kY676wLbZKc59UbcUGM8ogjOGOc=">
+            <menu:item id="i_category_new" messageCode="global_menu_new" url="/categorys?form" z="Xqz6msHtFFIlT4/UwJALJOYTD1I="/>
+            <menu:item id="i_category_list" messageCode="global_menu_list" url="/categorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="6D9be6DQ6UCnl0O7TDbbrkOhNIE="/>
+        </menu:category>
+        <menu:category id="c_product" z="vJ6efqiSxFssuvqFTsXpvZ3AvA8=">
+            <menu:item id="i_product_new" messageCode="global_menu_new" url="/products?form" z="Ezf8cTW61d2RkMNEcYkDJpG01kc="/>
+            <menu:item id="i_product_list" messageCode="global_menu_list" url="/products?page=1&amp;size=${empty param.size ? 10 : param.size}" z="kEeyCmUUYXShbDEWwOLheaAkM50="/>
+        </menu:category>
+        <menu:category id="c_customer" z="Wa+bVSiDyYo/wX1nGU1B/z+OKhE=">
+            <menu:item id="i_customer_new" messageCode="global_menu_new" url="/customers?form" z="d9+YIotZHp6KZLGKwwnMVzPvh8k="/>
+            <menu:item id="i_customer_list" messageCode="global_menu_list" url="/customers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Yo9cUtyc7EUvbxwQ7EoeqXWaVJM="/>
+        </menu:category>
+        <menu:category id="c_provider" z="qZ+nkmjhdayV87fGbEw2hhp0V4o=">
+            <menu:item id="i_provider_new" messageCode="global_menu_new" url="/providers?form" z="5ew3C+GxwHBke11UPa8brbXBs9U="/>
+            <menu:item id="i_provider_list" messageCode="global_menu_list" url="/providers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="TgJi++6a7c4vQ15mFdswicVulK0="/>
+        </menu:category>
+        <menu:category id="c_delivery" z="bE4SbPWnpdF2UKowVFn5+8GXoMs=">
+            <menu:item id="i_delivery_new" messageCode="global_menu_new" url="/deliverys?form" z="GEU4eIH4+lT3NUZJKd6wdWNy/E8="/>
+            <menu:item id="i_delivery_list" messageCode="global_menu_list" url="/deliverys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="xQYVdurkOjcRUci3EbGJN/nh3lU="/>
+        </menu:category>
+    </menu:menu>
+</div>

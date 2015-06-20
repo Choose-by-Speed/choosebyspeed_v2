@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_epam_hack_choosebyspeed_domain_Customer" items="${customers}" z="uPhGwBj1hcp0S4hmJie5fLTM0GY=">
+        <table:table data="${customers}" id="l_com_epam_hack_choosebyspeed_domain_Customer" path="/customers" z="ZF2+MPMEUxEot4JBKIuXgbwOCbE=">
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Customer_name" property="name" z="cxPYHKGcLlB8rC6tpoN20sSHCKo="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Customer_email" property="email" z="ICCOlWOyTNJAH5+LBVRgH/Q0kUU="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Customer_phoneNumber" property="phoneNumber" z="bB4HtZerw5OX0a0PqkbGQQ6alI4="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Customer_address" property="address" z="H0Q8138dfXnXS7xbq7vELmEa2Gs="/>
+        </table:table>
+    </page:list>
+</div>

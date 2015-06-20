@@ -1,0 +1,64 @@
+project --topLevelPackage com.epam.hack.choosebyspeed
+
+#jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+
+persistence setup --provider HIBERNATE --database MYSQL
+database properties set --key database.password --value bigbang
+database properties set --key database.username --value hkuser
+database properties set --key database.url --value jdbc:mysql://112.126.72.242:3306/hktest
+
+
+entity jpa --class ~.domain.Category
+field string --fieldName name --notNull --sizeMax 30
+field reference --fieldName parent --type ~.domain.Category
+
+entity jpa --class ~.domain.Product
+field string --fieldName name --notNull --sizeMax 30
+field reference --fieldName category --type ~.domain.Category
+
+entity jpa --class ~.domain.Provider
+field string --fieldName name --notNull --sizeMax 30
+field reference --fieldName category --type ~.domain.Category
+field number --fieldName locationLat --type java.lang.Float
+field number --fieldName locationLong --type java.lang.Float
+//field string --fieldName website --notNull --sizeMax 30
+field string --fieldName imageUrl --notNull --sizeMax 300
+field file --fieldName image --contentType JPG
+field string --fieldName description --notNull --sizeMax 500
+field string --fieldName phoneNumber --notNull --sizeMax 500
+field string --fieldName menuHtml --notNull --sizeMax 500
+//finder add --finderName findProvidersByCategory --class ~.domain.Provider
+
+entity jpa --class ~.domain.Promotion
+field string --fieldName name --notNull --sizeMax 30
+field string --fieldName description --notNull --sizeMax 300
+field date --fieldName periodStart --type java.util.Date
+field date --fieldName periodEnd --type java.util.Date
+
+entity jpa --class ~.domain.Customer
+field string --fieldName name --notNull --sizeMax 30
+field string --fieldName email --sizeMax 50
+field string --fieldName phoneNumber --sizeMax 50
+field string --fieldName address --sizeMax 200
+
+entity jpa --class ~.domain.Delivery
+field reference --fieldName provider --type ~.domain.Provider
+field reference --fieldName customer --type ~.domain.Customer
+field date --fieldName timeStart --type java.util.Date --past
+field date --fieldName timeEnd --type java.util.Date --past 
+field number --fieldName timeDuration --type java.lang.Float
+
+
+// Offer JSON remoting for all domain types through Spring MVC
+json all --deepSerialize
+web mvc json setup
+web mvc json all --package ~.web
+
+web mvc setup
+web mvc all --package ~.web
+
+web mvc language --code de
+
+logging setup --level INFO
+
+//security setup

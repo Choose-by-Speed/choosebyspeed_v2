@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_epam_hack_choosebyspeed_domain_Delivery" items="${deliverys}" z="scuW/bfjdrTgeQeqFK96Hg5nKCw=">
+        <table:table data="${deliverys}" id="l_com_epam_hack_choosebyspeed_domain_Delivery" path="/deliverys" z="Y8EWaZIiGraVNH1c1SafSeODkN4=">
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Delivery_provider" property="provider" z="i86GpL+ozjHQetQtZVbVl1ZCneM="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Delivery_customer" property="customer" z="B8kc38DQqbJrdQ1O8wBf76AbyVk="/>
+            <table:column date="true" dateTimePattern="${delivery_timestart_date_format}" id="c_com_epam_hack_choosebyspeed_domain_Delivery_timeStart" property="timeStart" z="0OOUINRtxcOBG5ANATVMgl3fkjY="/>
+            <table:column date="true" dateTimePattern="${delivery_timeend_date_format}" id="c_com_epam_hack_choosebyspeed_domain_Delivery_timeEnd" property="timeEnd" z="pNM+TuJg8uIZg1LyyUMYqBi3a5Y="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Delivery_timeDuration" property="timeDuration" z="hfaHNvLUeifdee10oizXG13F3no="/>
+        </table:table>
+    </page:list>
+</div>

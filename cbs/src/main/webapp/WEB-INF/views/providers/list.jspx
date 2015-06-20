@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_epam_hack_choosebyspeed_domain_Provider" items="${providers}" z="l6SusRNautTofOW9+LF8y6YUYxI=">
+        <table:table data="${providers}" id="l_com_epam_hack_choosebyspeed_domain_Provider" path="/providers" z="yao3HCDoK3qwOnF6X9rXUr66dlM=">
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Provider_name" property="name" z="vaztUU3JvtS6iRLzoO27qP7vync="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Provider_category" property="category" z="cEvH5yndM2tao8MURfB0Xq13olI="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Provider_locationLat" property="locationLat" z="2srs6dbs8Ni5FXR5JAEzJX1UH70="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Provider_locationLong" property="locationLong" z="gFYR48krCtd2kx9q8p/lCZ4L9zM="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Provider_imageUrl" property="imageUrl" z="CHkANLj4kcokTZT/bccLsIPLAsM="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Provider_image" property="image" z="vP5TStj1u5ojTdIS+zESvXywUOI="/>
+        </table:table>
+    </page:list>
+</div>

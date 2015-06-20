@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_epam_hack_choosebyspeed_domain_Provider" modelAttribute="provider" path="/providers" versionField="Version" z="lNB0FZ7W28XXmsjC+t/Dsua85Mw=">
+        <field:input field="name" id="c_com_epam_hack_choosebyspeed_domain_Provider_name" max="30" required="true" z="qhUkP2iUN8fNwU+P26hkkzUZH5k="/>
+        <field:select field="category" id="c_com_epam_hack_choosebyspeed_domain_Provider_category" itemValue="id" items="${categorys}" path="/categorys" z="aOUBt6igRa1hN0aNsa3l8odLwYg="/>
+        <field:input field="locationLat" id="c_com_epam_hack_choosebyspeed_domain_Provider_locationLat" validationMessageCode="field_invalid_number" z="yK8F6Il08lcZEyrz7QHxQCDHTt4="/>
+        <field:input field="locationLong" id="c_com_epam_hack_choosebyspeed_domain_Provider_locationLong" validationMessageCode="field_invalid_number" z="XAU9A3BI3aBA/Zny0NGTTWKWI0k="/>
+        <field:textarea field="imageUrl" id="c_com_epam_hack_choosebyspeed_domain_Provider_imageUrl" required="true" z="cR0mpRbox6M6gt5eQnyO+W4DzB0="/>
+        <field:textarea field="image" id="c_com_epam_hack_choosebyspeed_domain_Provider_image" z="2DQphQVC70SBSb9mTb6KgIIsQUY="/>
+        <field:textarea field="description" id="c_com_epam_hack_choosebyspeed_domain_Provider_description" required="true" z="bS1itAaRDwMiPhfi4RuQbqStJWg="/>
+        <field:textarea field="phoneNumber" id="c_com_epam_hack_choosebyspeed_domain_Provider_phoneNumber" required="true" z="PO1+W6sJ5WJ8LHfCNxx8qD/fAM0="/>
+        <field:textarea field="menuHtml" id="c_com_epam_hack_choosebyspeed_domain_Provider_menuHtml" required="true" z="7IiwpMkzU7qLk6qj4CCXWl3jEnA="/>
+    </form:update>
+</div>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_epam_hack_choosebyspeed_domain_Delivery" modelAttribute="delivery" path="/deliverys" versionField="Version" z="fIQ1nfP2atDK6nc0/CY31Xt8QHU=">
+        <field:select field="provider" id="c_com_epam_hack_choosebyspeed_domain_Delivery_provider" itemValue="id" items="${providers}" path="/providers" z="eRoXej22FzkpD4HZKpr9HpPw/T4="/>
+        <field:select field="customer" id="c_com_epam_hack_choosebyspeed_domain_Delivery_customer" itemValue="id" items="${customers}" path="/customers" z="7sHwi6furCyF76EyciLCcQ4AnEY="/>
+        <field:datetime dateTimePattern="${delivery_timestart_date_format}" field="timeStart" id="c_com_epam_hack_choosebyspeed_domain_Delivery_timeStart" past="true" z="7UC8PjMUlhMZBBm0ztoY8ffUyd8="/>
+        <field:datetime dateTimePattern="${delivery_timeend_date_format}" field="timeEnd" id="c_com_epam_hack_choosebyspeed_domain_Delivery_timeEnd" past="true" z="pkBdO8CBzICw9xh5tmEGwcOoF48="/>
+        <field:input field="timeDuration" id="c_com_epam_hack_choosebyspeed_domain_Delivery_timeDuration" validationMessageCode="field_invalid_number" z="52oUbgN2jlLeLyBLkoju/6edZnA="/>
+    </form:update>
+</div>

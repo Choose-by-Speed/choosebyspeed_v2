@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_epam_hack_choosebyspeed_domain_Provider" object="${provider}" path="/providers" z="WssS10WvOv3tPa9kTwdAoqRI67I=">
+        <field:display field="name" id="s_com_epam_hack_choosebyspeed_domain_Provider_name" object="${provider}" z="6GXLCbLAuFQnj+ata4WXupvtCC0="/>
+        <field:display field="category" id="s_com_epam_hack_choosebyspeed_domain_Provider_category" object="${provider}" z="wSynA3q1bw3sjPIikknrJoWr+fA="/>
+        <field:display field="locationLat" id="s_com_epam_hack_choosebyspeed_domain_Provider_locationLat" object="${provider}" z="8GFqyAkanW/yqEpCg+90U9V+3tI="/>
+        <field:display field="locationLong" id="s_com_epam_hack_choosebyspeed_domain_Provider_locationLong" object="${provider}" z="SPi2MYwGCBRNa8c3w4GTSvJVMZo="/>
+        <field:display field="imageUrl" id="s_com_epam_hack_choosebyspeed_domain_Provider_imageUrl" object="${provider}" z="+aYXjnxXYnmEXi9ZA/c+Erp4jdw="/>
+        <field:display field="image" id="s_com_epam_hack_choosebyspeed_domain_Provider_image" object="${provider}" z="WO+qYuX6RPTBO4HXlfjjYuaIWVQ="/>
+        <field:display field="description" id="s_com_epam_hack_choosebyspeed_domain_Provider_description" object="${provider}" z="vsHM+5RsaLnOD+pI6yGSTVUCZBM="/>
+        <field:display field="phoneNumber" id="s_com_epam_hack_choosebyspeed_domain_Provider_phoneNumber" object="${provider}" z="ecrUKi5LbfN86QYr67w8KFk0Y2Q="/>
+        <field:display field="menuHtml" id="s_com_epam_hack_choosebyspeed_domain_Provider_menuHtml" object="${provider}" z="Se+iqkjYm8bSl1i6Qr1ofGhdHXw="/>
+    </page:show>
+</div>
