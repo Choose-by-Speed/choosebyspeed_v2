@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +25,7 @@ p {
 </style>
     <link href="dropDownMenu.css" rel="stylesheet" type="text/css">
 
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mQEILeHsxAjySv7ZMt7XQUFe">
-</script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mQEILeHsxAjySv7ZMt7XQUFe"></script>
 	<title>icon&points</title>
 </head>
 <body>
@@ -31,14 +33,14 @@ p {
     
     <div>
         <h1>Welcome all</h1>
-
         <nav id="primary_nav_wrap">
         <ul>
-<!--           <li class="current-menu-item"><a href="#">Home</a></li> -->
-
           <li><a href="#">Filter Categories</a>
             <ul>
-              <li><a class="dir catFitlerBtn" data-cat-id="1" href="#">category 1</a></li>
+            	<c:forEach items="${categorys}" var="cat">
+		              <li><a class="dir catFitlerBtn" data-cat-id="<c:out value="${cat.id}"/>" href="#"><c:out value="${cat.name}"/></a></li>
+				</c:forEach>
+              
               <li><a class="dir catFitlerBtn" data-cat-id="2" href="#">category 2 THIS IS SO LONG IT MIGHT CAUSE AN ISSEUE BUT MAYBE NOT?</a>
                 <ul>
                   <li><a class="catFitlerBtn" data-cat-id="30" href="#">sub cat 3</a></li>
@@ -46,9 +48,6 @@ p {
                   <li><a class="catFitlerBtn" data-cat-id="50" href="#">sub cat 5</a></li>
                 </ul>
               </li>
-              <li><a class="dir catFitlerBtn" data-cat-id="3" href="#">category 3</a></li>
-              <li><a class="dir catFitlerBtn" data-cat-id="4" href="#">category 4</a></li>
-              <li><a class="dir catFitlerBtn" data-cat-id="5" href="#">category 5</a></li>
             </ul>
           </li>
           <li><a href="#">Orders</a></li>
