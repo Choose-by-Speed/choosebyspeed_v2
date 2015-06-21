@@ -50,7 +50,7 @@ p {
     <div>
         <nav id="primary_nav_wrap">
         <ul>
-          <li><a href="#">Filter Categories</a>
+          <li><a href="#" class="catFitlerBtn" data-cat-id="-1">Filter Categories</a>
             <ul>
             	<c:forEach items="${categorys}" var="cat">
 		              <li>

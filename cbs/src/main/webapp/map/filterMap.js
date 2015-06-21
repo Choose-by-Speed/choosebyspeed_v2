@@ -11,8 +11,21 @@
     function catFitlerBtnAction(e){
         
         var categoryId = e.target.getAttribute('data-cat-id');
+        
+        
+        if (categoryId == -1)  {
+            ajax.get('http://localhost:8080/choosebyspeed/providers', {}, function(responseText) {
 
-        ajax.get('/choosebyspeed/providers/query', {'categoryId': categoryId}, function(responseText) {
+                var providers = jsonToProviders(responseText);
+
+                providersToIcons(providers);
+
+            }, true);
+            return;
+        }
+        
+        var provUrlBase = '/choosebyspeed/providers/query';
+        ajax.get(provUrlBase, {'categoryId': categoryId}, function(responseText) {
     
             var providers = jsonToProviders(responseText);
             
