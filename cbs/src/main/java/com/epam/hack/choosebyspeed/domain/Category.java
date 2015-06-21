@@ -91,7 +91,7 @@ public class Category {
 
 	public static List<Category> findCategoryByCategory(Category category) {
 		if(category == null){
-			 return entityManager().createQuery("SELECT o FROM Category o WHERE o.parent is NOT NULL").getResultList();			
+			 return entityManager().createQuery("SELECT o FROM Category o WHERE o.parent is NULL").getResultList();			
 		}
 		else{
 			TypedQuery<Category> query = entityManager().createQuery("SELECT c FROM Category c WHERE c.parent = :category", Category.class);

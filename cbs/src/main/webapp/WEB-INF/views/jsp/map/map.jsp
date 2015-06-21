@@ -26,7 +26,7 @@ p {
     <link href="dropDownMenu.css" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mQEILeHsxAjySv7ZMt7XQUFe"></script>
-	<title>icon&points</title>
+	<title>Choose By Speed</title>
 </head>
 <body>
 	<header>
@@ -54,7 +54,7 @@ p {
             <ul>
             	<c:forEach items="${categorys}" var="cat">
 		              <li>
-		              	<a class="dir catFitlerBtn" data-cat-id="<c:out value="${cat.id}"/>" href="#"><c:out value="${cat.name}"/></a>
+		              	<a class="dir catFitlerBtn" data-cat-id="<c:out value="${cat.id}"/>" href="#"><c:out value="${cat.name}${cat.id}"/></a>
 		              	<ul></ul>
 		              </li>
 				</c:forEach>
