@@ -2,6 +2,8 @@
 {
 	margin-top:15px
 ;
+	position: absolute;
+	z-index: 1;
 }
 
 #primary_nav_wrap ul

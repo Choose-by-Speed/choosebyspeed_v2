@@ -1,13 +1,12 @@
 (function(){
     
-    
-    var catFitlerBtns = document.querySelectorAll(".catFitlerBtn");
-    [].forEach.call(catFitlerBtns, function(el) {
-        
-        el.addEventListener('click', catFitlerBtnAction)
-
-    });
-
+    function assignListeners() {
+        var catFitlerBtns = document.querySelectorAll(".catFitlerBtn");
+        [].forEach.call(catFitlerBtns, function(el) {
+            el.addEventListener('click', catFitlerBtnAction)
+        });
+    }
+    assignListeners();
 
     function catFitlerBtnAction(e){
         
@@ -15,10 +14,10 @@
 
         ajax.get('/choosebyspeed/providers/query', {'categoryId': categoryId}, function(responseText) {
     
-            var providers = jsonToPoints(responseText);
+            var providers = jsonToProviders(responseText);
             
             map.clearOverlays();
-            pointsToIcons(providers);
+            providersToIcons(providers);
 
         }, true);
 
@@ -35,7 +34,8 @@
                 
             });
             
-            subUl.innerHTML = lvl2CatLi;
+            if(lvl2CatLi) subUl.innerHTML = lvl2CatLi;
+            assignListeners();
         }, true);
 
         

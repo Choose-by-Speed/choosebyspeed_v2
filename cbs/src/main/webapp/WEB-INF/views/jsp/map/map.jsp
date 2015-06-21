@@ -16,7 +16,7 @@ body, html {
 }
 #allmap {
     width: 100%;
-    height: 500px;
+    height: 80%;
 }
 p {
     margin-left: 5px;
@@ -53,7 +53,7 @@ p {
               </li>
             </ul>
           </li>
-          <li><a href="#">Orders</a></li>
+<!--           <li><a href="#">Orders</a></li> -->
         </ul>
         </nav>
     </div>

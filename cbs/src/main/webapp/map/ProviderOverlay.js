@@ -13,9 +13,9 @@ ProviderOverlay.prototype.initialize = function(pMap) {
     div.style.position = "absolute";
     div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
     div.style.backgroundColor = this._color || "#EE5D5B";
-    div.style.border = "1px solid #000000";
+    div.style.border = "1px solid rgb(188, 58, 57)";
     div.style.borderRadius = "3px";
-    div.style.color = "white";
+    div.style.color = "black";
     div.style.height = "18px";
     div.style.padding = "2px";
     div.style.lineHeight = "18px";
@@ -37,7 +37,7 @@ ProviderOverlay.prototype.initialize = function(pMap) {
     arrow.style.overflow = "hidden";
     div.appendChild(arrow);
 
-    div.onclick = function(e) {
+    div.onclick = span.onclick = function(e) {
         window.location.href = that._providerDetURL;
     }
 
