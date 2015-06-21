@@ -66,9 +66,12 @@ function providersToIcons(providers) {
         
     providers.forEach(function(provider) {
 
-        var name = provider.name, 
-            color = "rgb("+provider.averageDeliveryRating+", 250, 0)";
-           color= "rgb("+250+", 250, 0)";
+        var name = provider.name;
+
+             
+//            color = "rgb("+provider.averageDeliveryRating+", 250, 0)";
+        var fakeDelRating = Math.floor(Math.random() * (255 - 0 + 1));  
+        color= "rgb("+fakeDelRating+", 250, 0)";
         var myCompOverlay = new ProviderOverlay(provider, name, color);
 
         map.addOverlay(myCompOverlay);

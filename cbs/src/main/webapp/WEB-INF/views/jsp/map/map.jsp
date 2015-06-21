@@ -29,10 +29,25 @@ p {
 	<title>icon&points</title>
 </head>
 <body>
- 
+	<header>
+
+		<div id="logo">
+			<img src="/choosebyspeed/resources/images/logo.jpg" />
+		</div>
+
+		<div id="intro">Choose everything you want by speed from today!
+		</div>
+
+	</header>
+ 	<nav>
+		<ul>
+			<li><a href="#" title="Speed Map">Map</a></li>
+                /
+			<li><a href="#" title="Order List">Order List</a></li>
+		</ul>
+	</nav>
     
     <div>
-        <h1>Welcome all</h1>
         <nav id="primary_nav_wrap">
         <ul>
           <li><a href="#">Filter Categories</a>
@@ -44,13 +59,13 @@ p {
 		              </li>
 				</c:forEach>
               
-              <li><a class="dir catFitlerBtn" data-cat-id="2" href="#">category 2 THIS IS SO LONG IT MIGHT CAUSE AN ISSEUE BUT MAYBE NOT?</a>
-                <ul>
-                  <li><a class="catFitlerBtn" data-cat-id="30" href="#">sub cat 3</a></li>
-                  <li><a class="catFitlerBtn" data-cat-id="40" href="#">sub cat 4</a></li>
-                  <li><a class="catFitlerBtn" data-cat-id="50" href="#">sub cat 5</a></li>
-                </ul>
-              </li>
+<!--               <li><a class="dir catFitlerBtn" data-cat-id="2" href="#">category 2 THIS IS SO LONG IT MIGHT CAUSE AN ISSEUE BUT MAYBE NOT?</a> -->
+<!--                 <ul> -->
+<!--                   <li><a class="catFitlerBtn" data-cat-id="30" href="#">sub cat 3</a></li> -->
+<!--                   <li><a class="catFitlerBtn" data-cat-id="40" href="#">sub cat 4</a></li> -->
+<!--                   <li><a class="catFitlerBtn" data-cat-id="50" href="#">sub cat 5</a></li> -->
+<!--                 </ul> -->
+<!--               </li> -->
             </ul>
           </li>
 <!--           <li><a href="#">Orders</a></li> -->
