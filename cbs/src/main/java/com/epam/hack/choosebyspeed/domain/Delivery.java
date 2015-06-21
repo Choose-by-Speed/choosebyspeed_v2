@@ -4,12 +4,16 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
+
 import javax.persistence.ManyToOne;
+
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
@@ -19,8 +23,10 @@ import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.TypedQuery;
 import javax.persistence.Version;
 import javax.validation.constraints.Past;
+
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.json.RooJson;
@@ -135,6 +141,13 @@ public class Delivery {
             }
         }
         return entityManager().createQuery(jpaQuery, Delivery.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static int findAverageDeliverySpeedByProvider(Provider provider){
+    	TypedQuery<Double> query = entityManager().createQuery("SELECT AVG(o.timeDuration) FROM Delivery o WHERE o.provider = :provider", Double.class);
+    	query.setParameter("provider", provider);
+    	return (int)Math.rint(query.getResultList().get(0));
+    	
     }
 
     @Transactional

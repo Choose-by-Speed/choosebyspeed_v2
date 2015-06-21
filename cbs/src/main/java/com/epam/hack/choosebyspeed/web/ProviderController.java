@@ -1,10 +1,14 @@
 package com.epam.hack.choosebyspeed.web;
 import com.epam.hack.choosebyspeed.domain.Category;
+import com.epam.hack.choosebyspeed.domain.Delivery;
 import com.epam.hack.choosebyspeed.domain.Provider;
+
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +43,7 @@ public class ProviderController {
             if (provider == null) {
                 return new ResponseEntity<String>(headers, HttpStatus.NOT_FOUND);
             }
+            provider.setAverageDeliveryRating(Delivery.findAverageDeliverySpeedByProvider(provider));
             return new ResponseEntity<String>(provider.toJson(), headers, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<String>("{\"ERROR\":"+e.getMessage()+"\"}", headers, HttpStatus.INTERNAL_SERVER_ERROR);

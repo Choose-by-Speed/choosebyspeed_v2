@@ -24,6 +24,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Lob;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import org.springframework.roo.classpath.operations.jsr303.RooUploadedFile;
@@ -99,6 +100,17 @@ public class Provider {
 	@Version
     @Column(name = "version")
     private Integer version;
+
+	@Transient
+	private int averageDeliveryRating;
+	
+	public int getAverageDeliveryRating() {
+		return averageDeliveryRating;
+	}
+
+	public void setAverageDeliveryRating(int averageDuration) {
+		this.averageDeliveryRating = averageDuration;
+	}
 
 	public Long getId() {
         return this.id;
