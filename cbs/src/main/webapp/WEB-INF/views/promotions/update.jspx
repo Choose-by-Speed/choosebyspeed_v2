@@ -7,5 +7,6 @@
         <field:textarea field="description" id="c_com_epam_hack_choosebyspeed_domain_Promotion_description" required="true" z="CqF8gszL7pWqL6BFGH+7wiQYSXc="/>
         <field:datetime dateTimePattern="${promotion_periodstart_date_format}" field="periodStart" id="c_com_epam_hack_choosebyspeed_domain_Promotion_periodStart" z="FIta76dOwah9FDkZbH/rcLinBy4="/>
         <field:datetime dateTimePattern="${promotion_periodend_date_format}" field="periodEnd" id="c_com_epam_hack_choosebyspeed_domain_Promotion_periodEnd" z="7tlCI+puQIsVsx12ntr5SxQ/YGM="/>
+        <field:select field="provider" id="c_com_epam_hack_choosebyspeed_domain_Promotion_provider" itemValue="id" items="${providers}" path="/providers" z="TKFuqgDFLcC2qs1XkojRK6mFhFc="/>
     </form:update>
 </div>
