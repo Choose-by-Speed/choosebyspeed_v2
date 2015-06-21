@@ -55,7 +55,7 @@ public class MapController {
 //            float nrOfPages = (float) Category.countCategorys() / sizeNo;
 //            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
 //        } else {
-//            uiModel.addAttribute("categorys", Category.findAllCategorys(sortFieldName, sortOrder));
+            uiModel.addAttribute("categorys", Category.findAllCategorys(sortFieldName, sortOrder));
 //        }
 //        return "categorys/list";
         return "map/map";

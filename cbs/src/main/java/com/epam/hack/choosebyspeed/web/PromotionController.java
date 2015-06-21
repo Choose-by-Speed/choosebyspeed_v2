@@ -1,9 +1,14 @@
 package com.epam.hack.choosebyspeed.web;
+import com.epam.hack.choosebyspeed.domain.Category;
 import com.epam.hack.choosebyspeed.domain.Promotion;
+import com.epam.hack.choosebyspeed.domain.Provider;
+
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpHeaders;
@@ -53,6 +58,20 @@ public class PromotionController {
         headers.add("Content-Type", "application/json; charset=utf-8");
         try {
             List<Promotion> result = Promotion.findAllPromotions();
+            return new ResponseEntity<String>(Promotion.toJsonArray(result), headers, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<String>("{\"ERROR\":"+e.getMessage()+"\"}", headers, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+	
+	@RequestMapping(value = "/query", headers = "Accept=application/json")
+    @ResponseBody
+    public ResponseEntity<String> listJsonByProviderId(String providerId) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        try {
+        	Long id = Long.parseLong(providerId);
+            List<Promotion> result = Promotion.findPromotionsByProviderId(id);
             return new ResponseEntity<String>(Promotion.toJsonArray(result), headers, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<String>("{\"ERROR\":"+e.getMessage()+"\"}", headers, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -194,6 +213,7 @@ public class PromotionController {
 
 	void populateEditForm(Model uiModel, Promotion promotion) {
         uiModel.addAttribute("promotion", promotion);
+        uiModel.addAttribute("providers", Provider.findAllProviders());
         addDateTimeFormatPatterns(uiModel);
     }
 

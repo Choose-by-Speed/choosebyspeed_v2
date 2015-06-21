@@ -8,6 +8,7 @@
             <table:column id="c_com_epam_hack_choosebyspeed_domain_Promotion_description" property="description" z="L2xf+22z9BRjRsULsIOMCYvWg0c="/>
             <table:column date="true" dateTimePattern="${promotion_periodstart_date_format}" id="c_com_epam_hack_choosebyspeed_domain_Promotion_periodStart" property="periodStart" z="wdq3Sax4f30qYQO29wDxJaf19jc="/>
             <table:column date="true" dateTimePattern="${promotion_periodend_date_format}" id="c_com_epam_hack_choosebyspeed_domain_Promotion_periodEnd" property="periodEnd" z="AacQwhqxPAyERB2PUt+whYZpw8w="/>
+            <table:column id="c_com_epam_hack_choosebyspeed_domain_Promotion_provider" property="provider" z="RzofBkvCbNFQnWybg5nA1PReX8A="/>
         </table:table>
     </page:list>
 </div>

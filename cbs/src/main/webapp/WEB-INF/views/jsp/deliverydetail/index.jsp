@@ -55,33 +55,34 @@
 	<div id="center">
 
 		<content>
-		<div id="item_image">
 
-			<img src="/choosebyspeed/resources/images/pizza01.jpg" />
+		<div id="delivery">
+			<p> Place Order ->>> </p><h2>Tel: 12345678</h2>
+			<p>Once you ordered, please press"Delivery Start"</p>
+			<input id="submit" type="submit" name="submit" value="Delivery Start" />
+			<div id="deliveryTimeDisplay">
+				<span>Delivery time:</span>
+				<div id="deliveryTimeCount">
+<!-- 					put auto counting here -->
+				</div>
+				
+				
 
-			<div id="item_intro">
-				<!--  -->
-				<h2>Pizza Hut</h2>
-				<div id="item_detail">We specialize in pizzas you never have
-					to settle for; from our classic Lover’s Line and Supreme recipes to
-					our new Flavor of Now recipes.</div>
+				<!-- 			</div>	 -->
+				<!-- 			<div id="book"> -->
+
+				<%-- 				<spring:url value="/deliveryDetail" var="deliveryDetailUrl" --%>
+				<%-- 					htmlEscape="true" /> --%>
+				<!-- 				<input id="submit" type="submit" name="submit" value="Order Start"/> -->
+
+
 			</div>
-
-		</div>
-
-		<div id="order_now">
-		<div id="promotion">		
-				<p>Promotion: From ${promotionStart} to ${promotionEnd } </p>
-				<p>Free upsize!</p>
-		</div>	
-			<div id="book">
-
-				<spring:url value="/deliveryDetail" var="deliveryDetailUrl"
-					htmlEscape="true" />
-				<input id="submit" type="submit" name="submit" value="Order now!"
-					ref="${deliveryDetailUrl}">
-
-
+			<p>Once you received, please press"Delivery Finish"</p>
+			<input id="submit" type="submit" name="submit" value="Delivery Finish" />
+			
+			<div id="deliveryTimeDisplay">	
+				<span>Duration:</span>
+				<div id="deliveryTimeCount"></div>
 			</div>
 		</div>
 		</content>

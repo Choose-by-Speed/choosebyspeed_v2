@@ -7,5 +7,6 @@
         <field:display field="description" id="s_com_epam_hack_choosebyspeed_domain_Promotion_description" object="${promotion}" z="xqRe2uif22GWCQTMnQbMUz7bNKc="/>
         <field:display date="true" dateTimePattern="${promotion_periodstart_date_format}" field="periodStart" id="s_com_epam_hack_choosebyspeed_domain_Promotion_periodStart" object="${promotion}" z="ILSyaMEC4sqn/2kR+N7R1tyUQ70="/>
         <field:display date="true" dateTimePattern="${promotion_periodend_date_format}" field="periodEnd" id="s_com_epam_hack_choosebyspeed_domain_Promotion_periodEnd" object="${promotion}" z="laoPfrFDrOgnB+Jpu/Pd67Yy+Po="/>
+        <field:display field="provider" id="s_com_epam_hack_choosebyspeed_domain_Promotion_provider" object="${promotion}" z="4Kd1p0xZ7TRQfZx9zcelIs9qqdM="/>
     </page:show>
 </div>

@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.transaction.annotation.Transactional;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Configurable
@@ -58,117 +59,115 @@ public class Promotion {
     @DateTimeFormat(style = "M-")
     private Date periodEnd;
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
     private Integer version;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	public Integer getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-	public String toJson() {
-        return new JSONSerializer()
-        .exclude("*.class").deepSerialize(this);
+    public String toJson() {
+        return new JSONSerializer().exclude("*.class").deepSerialize(this);
     }
 
-	public String toJson(String[] fields) {
-        return new JSONSerializer()
-        .include(fields).exclude("*.class").deepSerialize(this);
+    public String toJson(String[] fields) {
+        return new JSONSerializer().include(fields).exclude("*.class").deepSerialize(this);
     }
 
-	public static Promotion fromJsonToPromotion(String json) {
-        return new JSONDeserializer<Promotion>()
-        .use(null, Promotion.class).deserialize(json);
+    public static Promotion fromJsonToPromotion(String json) {
+        return new JSONDeserializer<Promotion>().use(null, Promotion.class).deserialize(json);
     }
 
-	public static String toJsonArray(Collection<Promotion> collection) {
-        return new JSONSerializer()
-        .exclude("*.class").deepSerialize(collection);
+    public static String toJsonArray(Collection<Promotion> collection) {
+        return new JSONSerializer().exclude("*.class").deepSerialize(collection);
     }
 
-	public static String toJsonArray(Collection<Promotion> collection, String[] fields) {
-        return new JSONSerializer()
-        .include(fields).exclude("*.class").deepSerialize(collection);
+    public static String toJsonArray(Collection<Promotion> collection, String[] fields) {
+        return new JSONSerializer().include(fields).exclude("*.class").deepSerialize(collection);
     }
 
-	public static Collection<Promotion> fromJsonArrayToPromotions(String json) {
-        return new JSONDeserializer<List<Promotion>>()
-        .use("values", Promotion.class).deserialize(json);
+    public static Collection<Promotion> fromJsonArrayToPromotions(String json) {
+        return new JSONDeserializer<List<Promotion>>().use("values", Promotion.class).deserialize(json);
     }
 
-	public String getName() {
+    public String getName() {
         return this.name;
     }
 
-	public void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-	public String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 
-	public void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-	public Date getPeriodStart() {
+    public Date getPeriodStart() {
         return this.periodStart;
     }
 
-	public void setPeriodStart(Date periodStart) {
+    public void setPeriodStart(Date periodStart) {
         this.periodStart = periodStart;
     }
 
-	public Date getPeriodEnd() {
+    public Date getPeriodEnd() {
         return this.periodEnd;
     }
 
-	public void setPeriodEnd(Date periodEnd) {
+    public void setPeriodEnd(Date periodEnd) {
         this.periodEnd = periodEnd;
     }
 
-	public String toString() {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
-	@PersistenceContext
+    @PersistenceContext
     transient EntityManager entityManager;
 
-	public static final List<String> fieldNames4OrderClauseFilter = java.util.Arrays.asList("name", "description", "periodStart", "periodEnd");
+    public static final List<String> fieldNames4OrderClauseFilter = java.util.Arrays.asList("name", "description", "periodStart", "periodEnd");
 
-	public static final EntityManager entityManager() {
+    public static final EntityManager entityManager() {
         EntityManager em = new Promotion().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
 
-	public static long countPromotions() {
+    public static long countPromotions() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Promotion o", Long.class).getSingleResult();
     }
 
-	public static List<Promotion> findAllPromotions() {
+    public static List<Promotion> findAllPromotions() {
         return entityManager().createQuery("SELECT o FROM Promotion o", Promotion.class).getResultList();
     }
 
-	public static List<Promotion> findAllPromotions(String sortFieldName, String sortOrder) {
+    public static List<Promotion> findPromotionsByProviderId(Long providerId) {
+        return entityManager().createQuery("SELECT o FROM Promotion o join fetch o.provider p where p.id =:id", Promotion.class).setParameter("id", providerId).getResultList();
+    }
+
+    public static List<Promotion> findAllPromotions(String sortFieldName, String sortOrder) {
         String jpaQuery = "SELECT o FROM Promotion o";
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
@@ -179,16 +178,16 @@ public class Promotion {
         return entityManager().createQuery(jpaQuery, Promotion.class).getResultList();
     }
 
-	public static Promotion findPromotion(Long id) {
+    public static Promotion findPromotion(Long id) {
         if (id == null) return null;
         return entityManager().find(Promotion.class, id);
     }
 
-	public static List<Promotion> findPromotionEntries(int firstResult, int maxResults) {
+    public static List<Promotion> findPromotionEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Promotion o", Promotion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 
-	public static List<Promotion> findPromotionEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+    public static List<Promotion> findPromotionEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
         String jpaQuery = "SELECT o FROM Promotion o";
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
@@ -199,13 +198,13 @@ public class Promotion {
         return entityManager().createQuery(jpaQuery, Promotion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 
-	@Transactional
+    @Transactional
     public void persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
 
-	@Transactional
+    @Transactional
     public void remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
@@ -216,23 +215,38 @@ public class Promotion {
         }
     }
 
-	@Transactional
+    @Transactional
     public void flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
 
-	@Transactional
+    @Transactional
     public void clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
 
-	@Transactional
+    @Transactional
     public Promotion merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
         Promotion merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
+
+    /**
+     */
+    @ManyToOne
+    private Provider provider;
+
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
+    
+    
 }
