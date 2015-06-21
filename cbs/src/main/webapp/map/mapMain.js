@@ -5,9 +5,9 @@ map.enableScrollWheelZoom();
 
 ajax.get('http://localhost:8080/choosebyspeed/providers', {}, function(responseText) {
     
-    var providers = jsonToPoints(responseText);
+    var providers = jsonToProviders(responseText);
 
-    pointsToIcons(providers);
+    providersToIcons(providers);
 
 }, true);
 

@@ -12,8 +12,24 @@ function jsonToPointsOld(json) {
 }    
 
 
-function jsonToPoints(json) {
+function jsonToProviders(json) {
     
+    var provDtos = JSON.parse(json);
+    var providers = [];
+    provDtos.forEach(function(provDto){
+        var provider = {
+            id:provDto['id'],
+            point: new BMap.Point(provDto['locationLong'], provDto['locationLat']),
+            name: provDto['name'],
+            averageDeliveryRating: provDto['averageDeliveryRating']
+        };
+        providers.push(provider);
+    });
+    return providers; 
+}
+
+function jsonToPoints(json) {
+
     var ptsDto = JSON.parse(json);
     var points = [];
     ptsDto.forEach(function(rawObj){
@@ -21,8 +37,8 @@ function jsonToPoints(json) {
         points.push(point);
     });
     return points; 
-}
 
+}
 
 
 function pointsToMap(pts) {
@@ -46,12 +62,14 @@ function setMarker(new_point) {
 }
 
 
-function pointsToIcons(pts) {
+function providersToIcons(providers) {
         
-    pts.forEach(function(pt) {
-        var txt = "Extra content:", 
-        mouseoverTxt = txt + " " + parseInt(Math.random() * 1000,10);
-        var myCompOverlay = new ComplexCustomOverlay(pt, "Provider info", mouseoverTxt);
+    providers.forEach(function(provider) {
+
+        var name = provider.name, 
+            color = "rgb("+provider.averageDeliveryRating+", 250, 0)";
+           color= "rgb("+250+", 250, 0)";
+        var myCompOverlay = new ProviderOverlay(provider, name, color);
 
         map.addOverlay(myCompOverlay);
 //         map.panTo(pt);

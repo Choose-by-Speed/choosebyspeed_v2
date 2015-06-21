@@ -38,7 +38,10 @@ p {
           <li><a href="#">Filter Categories</a>
             <ul>
             	<c:forEach items="${categorys}" var="cat">
-		              <li><a class="dir catFitlerBtn" data-cat-id="<c:out value="${cat.id}"/>" href="#"><c:out value="${cat.name}"/></a></li>
+		              <li>
+		              	<a class="dir catFitlerBtn" data-cat-id="<c:out value="${cat.id}"/>" href="#"><c:out value="${cat.name}"/></a>
+		              	<ul></ul>
+		              </li>
 				</c:forEach>
               
               <li><a class="dir catFitlerBtn" data-cat-id="2" href="#">category 2 THIS IS SO LONG IT MIGHT CAUSE AN ISSEUE BUT MAYBE NOT?</a>
@@ -57,7 +60,7 @@ p {
 	<div id="allmap"></div>
 
 
-	<script src="ComplexCustomOverlay.js" type="text/javascript"></script>
+	<script src="ProviderOverlay.js" type="text/javascript"></script>
 	<script src="mapUtils.js" type="text/javascript"></script>
 	<script src="Ajax.js" type="text/javascript"></script>
     <script src="mapMain.js" type="text/javascript"></script>
