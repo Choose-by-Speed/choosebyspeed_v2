@@ -22,7 +22,7 @@
 
 
 <body>
-	<header>
+<header>
 
 		<div id="logo">
 			<img src="/choosebyspeed/resources/images/logo.jpg" />
@@ -35,21 +35,23 @@
 
 	<nav>
 		<ul>
-			<li><a href="#" title="Home">Home</a></li>
+			<li><a href="/choosebyspeed/map/map" title="Speed Map">Map</a></li>
 			<!--
                 -->
-			<li><a href="#" title="How to visit Choose by speed">whatever</a></li>
+                /
+			<li><a href="#" title="Provider Detail">Provider</a></li>
 			<!--
                 -->
-			<li><a href="#" title="Price details">whatever</a></li>
-			<!--
-                -->
-			<li><a href="#" title="website details">whatever</a></li>
-			<!--
-                -->
-			<li><a href="#" title="Job opportunities">whatever</a></li>
-			<!--
-                -->
+				/
+			<li><a href="#" title="Delivery Detail">Delivery</a></li>
+<!-- 			<!-- -->
+<!--                 --> 
+<!-- 			<li><a href="#" title="website details">whatever</a></li> -->
+<!-- 			<!-- -->
+<!--                 --> 
+<!-- 			<li><a href="#" title="Job opportunities">whatever</a></li> -->
+<!-- 			<!-- -->
+<!--                 --> 
 		</ul>
 	</nav>
 	<div id="center">
