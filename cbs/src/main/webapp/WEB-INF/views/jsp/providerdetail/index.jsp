@@ -34,7 +34,7 @@
 		<ul>
 			<li><a href="/choosebyspeed/map/map" title="Speed Map">Map</a></li>
 			<!--
-                -->/
+                -->
 			<li><a href="#" title="Provider Detail">Provider</a></li>
 			<!--
                 -->

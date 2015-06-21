@@ -24,7 +24,7 @@
 <body>
 <header>
 
-		<div id="logo">
+		<div id="logo"> 
 			<img src="/choosebyspeed/resources/images/logo.jpg" />
 		</div>
 
